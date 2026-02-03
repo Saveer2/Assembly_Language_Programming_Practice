@@ -1,0 +1,20 @@
+ORG 0H
+	START:
+		MOV A, #0
+		MOV P1, A
+		MOV R0, #30H
+		ACALL DELAY
+		CPL A
+		MOV P1, A
+		MOV R0, #0FFH
+		ACALL DELAY
+		SJMP START
+		ORG 300H
+			
+		DELAY:
+			NOP
+		AGAIN:
+			DJNZ R0, AGAIN
+			RET 
+			
+		END
